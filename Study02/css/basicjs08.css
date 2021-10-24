@@ -1,0 +1,111 @@
+.main-background{
+    background-image: url(../img/photo1.jpg);
+    background-size: cover;
+    color : #eee;
+}
+.black-background{
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: all 1s;
+    transform : translateY(-1000px);
+}
+
+.slide-down{
+    transform : translateY(0px);
+}
+
+.white-background{
+    background :white;
+    width: 80%;
+    margin : 100px auto;
+    padding : 20px;
+    border-radius: 10px;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    padding : 10px;
+    align-items: center;
+}
+
+.nav-sub{
+    display: none;
+}
+
+#email-alert{
+    display: none;
+}
+
+#password-alert{
+    display: none;
+}
+
+.left-menu{
+    width: 150px;
+    height: 100%;
+    background: black;
+    color:white;
+    position: fixed;
+    margin-left: -150px;
+}
+
+.slide-box{
+    width: 100vw;
+    float: left;
+}
+.slide-container{
+    width: 300vw;
+    transition: all 1s;
+}
+
+.slide-box img{
+    width : 100%;
+}
+
+.slide-next{
+    position: absolute;
+    top : 45%;
+    right:0;
+    border : none;
+}
+
+.slide-before{
+    position: absolute;
+    top : 45%;
+    left:0;
+    border : none;
+}
+
+.nav-menu{
+    background: transparent;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    color:white;
+    transition: all 1s;
+}
+
+.nav-black{
+    background: #eee;
+    color: black;
+    transition: all 1s;
+}
+
+.small-logo{
+    font-size: 18px;
+    
+}
+
+.large-logo{
+    font-size: 30px;
+}
+
+.nav-menu h4 {
+    font-size : 30px;
+    transition : all 0.5s;
+  }
