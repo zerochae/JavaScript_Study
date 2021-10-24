@@ -13,9 +13,28 @@
 }
 
 .white-background{
-    background : cornflowerblue;
+    background :white;
     width: 80%;
     margin : 100px auto;
     padding : 20px;
     border-radius: 10px;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    padding : 10px;
+    align-items: center;
+}
+
+.nav-sub{
+    display: none;
+}
+
+#email-alert{
+    display: none;
+}
+
+#password-alert{
+    display: none;
 }
