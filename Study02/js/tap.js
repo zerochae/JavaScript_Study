@@ -29,3 +29,4 @@ function tap(i){
     $(".tab-content").eq(i).addClass("show");
 }
 
+document.getElementsByClassName
