@@ -98,10 +98,11 @@ $('.slide-before').click(function(){
 $(window).on('scroll',function(){
     if($(window).scrollTop() > 100){
         $('.nav-menu').addClass('nav-black');
-        $('.nav-menu h4').addClass('small-logo');
+        $('.nav-menu').addClass('small-logo');
     }
     if($(window).scrollTop() <= 100){
         $('.nav-menu').removeClass('nav-black');
-        $('.nav-menu h4').removeClass('small-logo');
+        $('.nav-menu').removeClass('small-logo');
     }
 });
+
