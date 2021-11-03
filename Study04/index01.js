@@ -224,3 +224,62 @@ for (var i = 0; i < 3; i++){
   });
 
 }
+
+var pants = 0;
+var socks = 100;
+`바지${pants} 양말${socks}`;
+
+function 해체분석기(글자들, 변수들1, 변수들2){
+
+    if(변수들1 == 0){
+        변수들1 = "다팔렸어요";
+    }
+
+    console.log(글자들[0] + 변수들1 + 글자들[1] + 변수들2);
+}
+
+해체분석기`바지${pants} 양말${socks}`; 
+
+var arr = ['hello','world'];
+
+console.log(arr);
+console.log(...arr);
+console.log(...arr[0])
+
+var a = [1,2,3];
+var b = [4,5];
+
+var cc = [...a,...b];
+
+console.log(cc)
+
+var a = [1,2,3,4];
+var b = a;
+
+console.log(a)
+console.log(b)
+
+a = [1,2,3]
+
+console.log(a)
+console.log(b)
+
+// var o1 = { a : 1, b : 2 };
+// var o2 = { c : 3, 그리고 o1에 있는거 전부.. }
+
+var o1 = {a:1, b:2}
+var o2 = {c:3 , ...o1}
+
+console.log(o2)
+
+var o1 = {a:1, b:2}
+var o2 = {a:3 , ...o1}
+
+console.log(o2)
+
+function 더하기(a,b,c){
+    console.log(a + b + c)
+ }
+ 
+ var 어레이 = [10, 20, 30];
+ 더하기(...어레이);
