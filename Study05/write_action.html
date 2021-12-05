@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="./jsp.js"></script>
+<script>
+var v_localKey="myGesi";
+var v_title = request.getParameter("n_title");
+var v_writer = request.getParameter("n_writer");
+var v_skills = request.getParameterValues("n_hobby");
+var v_content = request.getParameter("n_content").replaceAll("+"," ");
+
+var v_gesiGul = {};
+v_gesiGul.gid = 1;          // 일단 1로 설정
+v_gesiGul.title = v_title;
+v_gesiGul.writer = v_writer;
+v_gesiGul.skills = v_skills; 
+v_gesiGul.content = v_content;
+
+var v_arrData = []; 
+if(localStorage.getItem(v_localKey) != null){
+    v_arrData = JSON.parse(localStorage.getItem(v_localKey));
+    v_gesiGul.gid = v_arrData[v_arrData.length-1].gid+1;
+}
+
+v_arrData.push(v_gesiGul);
+localStorage.setItem(v_localKey,JSON.stringify(v_arrData));
+alert("글이 잘 저장 되었을 거예요");
+
+location.href="list.html";  // cache 가 될 수도 안 될 수 도 있음
+//location.replace("list.html"); // cache가 안됨
+</script>

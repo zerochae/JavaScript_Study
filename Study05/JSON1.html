@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+    이름<input type="text" id="d_name"><br>
+    코멘트<input type="text" id="d_comment"><br>
+    팔로잉<input type="text" id="d_follow"><br>
+    <input type="button" id="d_reg" value="등록"><br>
+    <input type="button" id="d_update" value="수정"><br>
+    <input type="button" id="d_delete" value="지우기"><br>
+</body>
+<script>
+    "use strict"
+    var v_btnDel = document.querySelector("#d_delete");
+    v_btnDel.addEventListener("click",function(){
+       var v_name=document.querySelector("#d_name").value;
+       var v_arrData = JSON.parse(localStorage.getItem("collection1"));
+       for(var i=0; i<v_arrData.length; i++){
+           if(v_arrData[i].name == v_name){
+               v_arrData.splice(i,1);     // i번째 부터 1개 지우기
+           }
+       }
+       localStorage.setItem("collection1", JSON.stringify(v_arrData));
+    });
+
+
+    var v_btn=document.querySelector("#d_reg");
+    var v_btnUP=document.querySelector("#d_update");
+
+    v_btnUP.addEventListener("click",function(){
+        /* 10분 과제
+           name이 같은 것을 찾아서 값을 수정합니다
+        */
+        var v_name=document.querySelector("#d_name").value;
+        var v_comment=document.querySelector("#d_comment").value;
+        var v_follower=document.querySelector("#d_follow").value;
+        //원 배열 꺼내기
+        var v_dataArr = JSON.parse(localStorage.getItem("collection1"));
+        //이름 같은 것 찾기
+        for(var i=0; i<v_dataArr.length; i++){
+            if(v_dataArr[i].name == v_name){    // 찾았다면
+                v_dataArr[i].comment = v_comment;  // 업데이트
+                v_dataArr[i].follwer = v_follower; // 업데이트
+                break;
+            }
+        }
+        //다시 덮어쓰깅
+        localStorage.setItem("collection1", JSON.stringify(v_dataArr));
+
+    });
+
+    /* 아래 것이 위에 것을 덮어씀
+    v_btn.onclick=function(){
+        alert("눌렀닝?");        
+    }
+    v_btn.onclick=function(){
+        alert("너 뭐닝? 로제 보러가장");
+    }
+    */
+    v_btn.addEventListener("click",function(){
+        var v_newJSON = {}; //빈객체 생성
+        v_newJSON.name=document.querySelector("#d_name").value;
+        v_newJSON.comment=document.querySelector("#d_name").value;
+        v_newJSON.follower=document.querySelector("#d_follow").value;
+        //원 배열 꺼내기
+        var v_dataArr = JSON.parse(localStorage.getItem("collection1"));
+        v_dataArr.push(v_newJSON);  //꺼낸 배열에 생성된 객체 넣기
+        localStorage.setItem("collection1", JSON.stringify(v_dataArr));
+    });
+
+    /*
+    var v_roze = {
+        name:"로제",
+        age:24,
+        song:"Gone"
+    }    
+   // localStorage.clear();//괜히 한번 지우기
+   //localStorage는 문자열만 저장됨, 객체는 바로 저장되지 않음
+    localStorage.setItem("key1",JSON.stringify(v_roze));
+    */
+</script>
+</html>

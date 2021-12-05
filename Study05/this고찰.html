@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /* 
+    var v_kkk="권영채 흥";
+    window.v_kkk="권영채 흥";
+
+    function f_check(){
+        console.log(this); //?
+    }
+    window.f_check();
+    */
+
+    var myroze={};
+    myroze.print = function(){
+        console.log(this); //?
+    }
+
+    //myroze.print(); // myroze
+
+    var kyc=myroze.print;
+
+    kyc();
+
+</script>    
+</body>
+</html>

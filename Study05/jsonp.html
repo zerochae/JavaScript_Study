@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        .image{
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+    <script>
+        var jsonFlickrFeed=function(p_json){
+            document.querySelector("#d_display").innerHTML="";            
+            var v_items = p_json.items;
+            console.log(v_items)
+            for(var i=0; i<v_items.length; i++){
+                var v_img = document.createElement("img");
+                v_img.src = v_items[i].media.m;
+                v_img.className = "image";
+                document.querySelector("#d_display").append(v_img);
+            }
+
+        }
+    </script>
+<!--<script id="d_scr" src="https://www.flickr.com/services/feeds/photos_public.gne?tags=dog&format=json"></script> -->
+</head>
+<body>
+    이미지검색어 <input type="text" id="d_search" value="">
+    <input type="button" value="껌색" id="d_btn"><br>
+    <div id="d_display"></div>
+<script>
+    var v_btn = document.querySelector("#d_btn");
+    var v_searchTxt = document.querySelector("#d_search");
+    var v_display = document.querySelector("#d_display");
+
+    v_btn.addEventListener("click",function(){
+        var v_script = document.querySelector("#d_scr");
+        if(v_script){
+            document.head.remove(v_script);
+        }
+
+        var v_script1=document.createElement("script");
+        v_script1.setAttribute("id","d_scr");
+        v_script1.src = "https://www.flickr.com/services/feeds/photos_public.gne?tags=" + v_searchTxt.value + "&format=json"
+        document.head.append(v_script1);
+    });
+
+</script>
+
+</body>
+</html>

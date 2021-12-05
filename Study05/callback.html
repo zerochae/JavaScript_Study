@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //callback 말 그대로 뒤에 부른다 해서 callback
+
+    var v_blackpink=["로제","제니","리사"];
+
+    var forEach=function(p_arr,p_callback){
+        for(var i=0; i<p_arr.length; i++){
+            p_callback(i,p_arr[i]);
+        }
+    }
+
+    var f_cb= function(p_inx,p_val){
+        alert(p_inx + " " + p_val);
+    }
+    // 이미 선언된 함수명에 ()를 붙이면 함수가 바로 실행되어버림
+    forEach(v_blackpink,f_cb);//함수명만 있는 걸 함수포인터(function pointer)
+
+    /*
+    forEach(v_blackpink,function(p_inx,p_val){
+        alert(p_inx + " " + p_val);
+    });
+    */
+
+
+</script>

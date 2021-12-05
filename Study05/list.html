@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<script src="./jsp.js"></script>
+</head>
+<body>
+    <h1>정말 볼품없는 리스트</h1>
+    <div class="wrapper">
+
+    </div>
+<script>
+    var v_localKey="myGesi";
+    var v_arrData= JSON.parse(localStorage.getItem(v_localKey));
+
+    //디스플레이
+    var v_tblString = "<table border=1>";
+        v_tblString += "<tr><th>GID</th><th>제목</th><th>글쓴이</th><th>스킬</th></tr>";
+        for(var i=0; i<v_arrData.length; i++){
+            v_tblString += "<tr>";
+            v_tblString += "<td>" + v_arrData[i].gid+ "</td>";
+            v_tblString += "<td><a href=read.html?gid=" + v_arrData[i].gid + " >" + v_arrData[i].title+ "</a></td>";
+            v_tblString += "<td>" + v_arrData[i].writer+ "</td>";
+            v_tblString += "<td>" + v_arrData[i].skills+ "</td>";
+            v_tblString += "</tr>";
+        }
+        v_tblString += "</table>";
+        v_tblString += "<a href='write.html'>새글쓰깅</a>";
+    document.querySelector(".wrapper").innerHTML = v_tblString;
+</script>
+</body>
+</html>

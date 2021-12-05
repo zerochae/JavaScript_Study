@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // ES6이후 class 키워드가 추가되었으나,
+    // JS 커뮤티니에서는 내부적으로 새로운 기능이 아니고
+    // 내부적으로 function으로 변환해서 실행되기 때문에
+    // 성능만 손해본다고 잘 쓰지 않음.
+    // JAVA/C++ 언어를 사용하던 사람은 친숙해서 좋아함
+    //동적객체 생성
+    var MyArray = function(){
+        this.length = 0;
+    }
+    MyArray.prototype.add = function(p_arg){
+        this[this.length] = p_arg;
+        this.length++;
+    }
+    MyArray.prototype.forEach = function(f_cb){
+        for(var i=0; i<this.length; i++){
+            f_cb(i,this[i]);
+        }
+    }
+
+    var susuk = new MyArray();
+    susuk.add("로제");
+    susuk.add("제니");
+    susuk.add("리사");
+
+    susuk.forEach(function(p_inx,p_val){
+        if(p_val=="로제"){
+            alert("로제 만만세^하트뿅뿅^");
+        }
+    });
+
+
+</script>

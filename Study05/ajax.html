@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    var v_check=function(){
+        var v_local = "안대근";  // 지역변수
+        return function(){
+            alert(v_local);
+        }
+    }
+
+     v_check()(); // 이것이 장황한 클로져당
+
+
+
+    // fetch
+    // 아작스 기본틀
+    /*
+    var v_ajax = new XMLHttpRequest(); // 비동기 통신객체 생성
+    v_ajax.open("get","data.txt",true); // 할일 알려주기
+    v_ajax.onreadystatechange = function(){
+        //다른 중간 상태에는 관심이 없고 , 다 되었는지만 관심
+        if(v_ajax.readyState == 4 && v_ajax.status == 200){
+            alert(v_ajax.responseText);
+        }
+    }
+    v_ajax.send();                 // 할일 해라고 지시
+    */
+     //일반화 시켜보기
+
+     var $={}; // namespace를 위한 빈객체 선언
+     $.ajax=function(p_json){
+        var v_ajax = new XMLHttpRequest(); // 비동기 통신객체 생성
+        v_ajax.open(p_json.type,p_json.url,true); // 할일 알려주기
+        v_ajax.onreadystatechange = function(){
+            if(v_ajax.readyState == 4 && v_ajax.status == 200){
+                if(p_json.dataType == "json"){
+                    p_json.success(JSON.parse(v_ajax.responseText));
+                }
+            }
+        }
+        v_ajax.send();
+     }
+    
+     $.ajax({
+         type:"get",
+         url:"data.txt",
+         success:function(p_rslt){
+             alert(p_rslt[0].name);
+             alert(p_rslt[0].like);
+         },
+         dataType:"json"
+     })
+
+</script>

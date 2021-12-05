@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>볼품없는 게시판</title>
+    <script src="./jsp.js"></script>
+</head>
+<body>
+    <script>
+        out.print("<h1>정말 볼품 없어용~~ ㅠㅠ</h1>")
+    </script>
+    <form action="write_action.html" method="get">
+        제목: <input type="text" name="n_title" value="" required><br>
+        글쓰니: <input type="text" name="n_writer" value="" required><br>
+        스킬 2개이상 선택하세용<br>
+        java<input type="checkbox" name="n_hobby" value="java">
+        jsp<input type="checkbox" name="n_hobby" value="jsp">
+        spring<input type="checkbox" name="n_hobby" value="spring">
+        js<input type="checkbox" name="n_hobby" value="js"><br>
+        내용<br>
+        <textarea name="n_content"></textarea><br>
+        <input type="submit" value="쩐송">
+        <input type="reset" value="다시쓸령">
+    </form>
+</body>
+</html>

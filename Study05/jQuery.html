@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<body>
+ <div class="yjw">윤</div>
+ <div class="yjw">주</div>
+ <div class="yjw">원</div>
+<script>
+    //동적 객체를 만들 때
+(function(){   
+    var $=function(p_sel){
+        return new mydom(p_sel);
+    }
+    var mydom=function(p_sel){
+       var v_elem=document.querySelectorAll(p_sel);
+       this.origin=p_sel;  // 처음 선택자값을 저장해놈
+       this.length = v_elem.length;
+       for(var i=0; i<v_elem.length; i++){
+           this[i] = v_elem[i];
+       }
+       return this;  // 필요없지만 명시적으로 붙여줌
+    }
+    window.$=$;
+    $.fn=mydom.prototype 
+})();
+
+$.fn.eq=function(p_inx){
+    this[0] = this[p_inx];
+    for(var i=1; i<this.length;i++){
+        delete this[i];
+    }
+    this.length = 1;
+    return this;
+}
+
+$.fn.end=function(){
+    return $(this.origin);
+}
+
+    var v_yjw = $(".yjw");
+    console.log(v_yjw.eq(1).end().eq(2)[0].innerHTML);
+</script>
+</body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<input type=button id="d_btn" value="누르셩">
+<script>
+    var myprint = document.write.bind(document);
+    myprint("<h1>로제 짱</h1>");
+
+
+    var v_btn = document.querySelector("#d_btn");
+
+    var f_click= function(p_arg1,p_arg2){
+        console.log(this);
+        alert(p_arg1 + p_arg2);
+    }
+
+    v_btn.onclick=f_click.bind(this,"A","B");
+
+
+
+    //context(맥락)에 따라 바뀌는 this 강제 컨트롤
+    // call, apply, bind
+    function f_check(p_arg1,p_arg2){
+        console.log(this,p_arg1,p_arg2);
+    }
+
+    var v_roze = {
+        name:"로제",
+        dance:"넘 잘해"
+    }
+
+    //call과 apply는 함수를 실행 시켰음
+    f_check.call(v_roze,"매개변수1","매개변수2");
+    f_check.apply(v_roze,["매개변수1","매개변수2"]);
+
+    //bind는 아주 특별, 실행되지 않음
+    //새로운 함수를 만들어서 리턴해줌(곧 함수포인터를 리턴)
+    var f_bind=f_check.bind(v_roze,"흥","치");
+    f_bind();
+</script>    
+</body>
+</html>
